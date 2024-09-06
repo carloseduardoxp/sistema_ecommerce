@@ -1,10 +1,12 @@
-import java.util.Date;
 
+
+import dao.CategoriaDao;
 import domain.Categoria;
 import domain.Cliente;
 import domain.ItemPedido;
 import domain.Pedido;
 import domain.Produto;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -15,5 +17,11 @@ public class App {
         ItemPedido itemPedido = new ItemPedido(pedido, produto, 4,500.24);
         pedido.addItem(itemPedido);
         System.out.println(pedido.calculaValorPedido());
+
+        CategoriaDao categoriaDao = new CategoriaDao();
+        List<Categoria> categorias = categoriaDao.getCategorias();
+        for (Categoria categoriaBanco: categorias) {
+            System.out.println("TRouxe a categoria do banco "+categoriaBanco.getNome());
+        }
     }
 }
