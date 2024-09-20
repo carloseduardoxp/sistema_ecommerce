@@ -23,5 +23,12 @@ public class App {
         for (Categoria categoriaBanco: categorias) {
             System.out.println("TRouxe a categoria do banco "+categoriaBanco.getNome());
         }
+
+        Categoria categoriaBusca = categoriaDao.getCategoriaById(5);
+        System.out.println(categoriaBusca.getNome());
+
+        Categoria geraldo = new Categoria(9,"Geraldo", "Fazendeiro");
+        categoriaDao.updateCategoria(geraldo);
+        
     }
 }
